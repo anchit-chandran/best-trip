@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse, reverse_lazy
+
+from django.views.generic.edit import CreateView
 
 from .models import Author, TripReport
 
@@ -17,4 +20,8 @@ def view_trip(request, trip_id):
     
     return render(request, template_name='tripJournal/view_trip.html', context={'trip_report':trip_report})
 
-
+class TripReportCreateView(CreateView):
+    model = TripReport
+    fields = '__all__'
+    template_name = 'tripJournal/create_trip_report.html'
+    success_url = reverse_lazy('list_trips')

@@ -1,37 +1,76 @@
 :root {
-    --main: rgb(56, 1, 1);
-    --muted: rgb(144, 144, 144);
-    --accent: rgb(235, 145, 253);
-    --accent-dark: rgb(170, 91, 185);
+  --main: rgb(56, 1, 1);
+  --muted: rgb(144, 144, 144);
+  --accent: rgb(235, 145, 253);
+  --accent-dark: rgb(170, 91, 185);
 }
 
 .cover-container {
-    max-width: 42em;
+  max-width: 42em;
 }
 
 /* NAV */
 .nav-link {
-    color: var(--muted);
-    border-bottom-color: var(--accent);
-    border-bottom: 0.2em solid;
+  color: var(--muted);
+  border-bottom-color: var(--accent);
+  border-bottom: 0.2em solid;
 }
 
 .nav-link.active {
-    color: var(--accent)
+  color: var(--accent);
 }
 
 /* TRIP CARDS */
 a.trip_report_clickable {
-    color: inherit;
-    text-decoration: inherit;
+  color: inherit;
+  text-decoration: inherit;
+}
+a.trip_report_clickable .card-footer {
+    background-color: inherit;
+    transition: background-color 3s;
+}
+
+a.trip_report_clickable:hover .card-footer {
+  animation: rainbow-border 3s ease-in-out infinite;
+}
+
+p.trip_report_text {
+    text-align: justify;
+}
+
+@keyframes rainbow-border {
+  0% {
+     background-color: rgba(255, 255, 255, 0.25); /* Red */
+  }
+  0% {
+    background-color: rgba(255, 0, 0, 0.25); /* Red */
+  }
+  16.7% {
+     background-color: rgb(255, 127, 0, 0.25); /* Orange */
+  }
+  33.3% {
+     background-color: rgb(255, 255, 0, 0.25); /* Yellow */
+  }
+  50% {
+     background-color: rgb(0, 255, 0, 0.25); /* Green */
+  }
+  66.7% {
+     background-color: rgb(0, 0, 255, 0.25); /* Blue */
+  }
+  83.3% {
+     background-color: rgb(75, 0, 130, 0.25); /* Indigo */
+  }
+  100% {
+     background-color: rgb(139, 0, 255, 0.25); /* Violet */
+  }
 }
 
 /* BUTTONS */
 .btn.btn-primary {
-    background-color: var(--accent-dark);
-    border: none;
+  background-color: var(--accent-dark);
+  border: none;
 }
 
 .btn.btn-primary:hover {
-    background-color: var(--accent);
+  background-color: var(--accent);
 }
