@@ -1,0 +1,18 @@
+{% extends 'tripJournal/base.html' %}
+
+{% block content %}
+<h1>Down memory lane...</h1>
+{% for trip in trip_reports %}
+<a href="{% url 'view_trip' trip_id=trip.id %}" class="trip_report_clickable">
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ trip.title }}</h5>
+            <p class="card-text">{{ trip.truncate_entry }}</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-body-secondary">Created {{ trip.date_of_trip }} by {{ trip.author }}</small>
+        </div>
+    </div>
+</a>
+{% endfor %}
+{% endblock content %}

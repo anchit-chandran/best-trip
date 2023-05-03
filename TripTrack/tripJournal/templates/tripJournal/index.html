@@ -1,5 +1,15 @@
-{% extends 'tripJournal/base.html' %} 
+{% extends 'tripJournal/base.html' %}
+
+
+
 
 {% block content %}
-<h1>Hello</h1>
+<main class="px-3">
+    <h1>Have a good trip ✨</h1>
+    <p class="lead">Trip Track is your all-in-one journal platform to ensure you learn from, and have a good trip!
+    </p>
+    <p class="lead">
+        <a href="{% url 'list_trips' %}" class="btn btn-lg btn-light fw-bold border-white bg-white">Turn on, Tune in, Drop out</a>
+    </p>
+</main>
 {% endblock content %}

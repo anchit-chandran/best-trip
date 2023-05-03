@@ -1,0 +1,16 @@
+{% extends 'tripJournal/base.html' %}
+
+{% block content %}
+<h1>{{ trip_report.title }}</h1>
+
+<div class="card my-3">
+    <div class="card-body">
+        <h5 class="card-title">by {{ trip_report.author }}</h5>
+        <p class="card-text">{{ trip_report.entry_text }}</p>
+    </div>
+    <div class="card-footer">
+        <small class="text-body-secondary">Created {{ trip_report.date_of_trip }}</small>
+    </div>
+</div>
+<a href="{% url 'list_trips' %}" class="btn btn-primary text-white w-25">< View all trips</a>
+{% endblock content %}

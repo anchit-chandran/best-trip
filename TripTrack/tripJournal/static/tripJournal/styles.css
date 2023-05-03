@@ -1,0 +1,37 @@
+:root {
+    --main: rgb(56, 1, 1);
+    --muted: rgb(144, 144, 144);
+    --accent: rgb(235, 145, 253);
+    --accent-dark: rgb(170, 91, 185);
+}
+
+.cover-container {
+    max-width: 42em;
+}
+
+/* NAV */
+.nav-link {
+    color: var(--muted);
+    border-bottom-color: var(--accent);
+    border-bottom: 0.2em solid;
+}
+
+.nav-link.active {
+    color: var(--accent)
+}
+
+/* TRIP CARDS */
+a.trip_report_clickable {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* BUTTONS */
+.btn.btn-primary {
+    background-color: var(--accent-dark);
+    border: none;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--accent);
+}
