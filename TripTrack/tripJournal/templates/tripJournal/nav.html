@@ -1,0 +1,18 @@
+{% url 'home' as home_url %}
+{% url 'list_trips' as list_trips_url %}
+{% url 'view_trip' as view_trip_url %}
+{% url 'create_trip' as create_trip_url %}
+
+<header class="mb-auto">
+    <div>
+        <a href="{% url 'home' %}">
+            <h3 class="float-md-start mb-0 text-white">Trip Track</h3>
+        </a>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link fw-bold py-1 px-0 {% if request.path == home_url %}active {% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+            <a class="nav-link {% if request.path == list_trips_url %}active {% endif %} fw-bold py-1 px-0 ms-3" href="{% url 'list_trips' %}">Trips</a>
+            <a class="nav-link {% if request.path == view_trip_url %}active {% endif %} fw-bold py-1 px-0 ms-3" href="#">Log in/Sign out</a>
+            <a class="nav-link {% if request.path == create_trip_url %}active {% endif %} fw-bold py-1 px-0 ms-3" href="#">Sign up</a>
+        </nav>
+    </div>
+</header>

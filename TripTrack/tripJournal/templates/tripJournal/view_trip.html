@@ -1,16 +1,28 @@
 {% extends 'tripJournal/base.html' %}
 
 {% block content %}
-<h1>{{ trip_report.title }}</h1>
 
 <div class="card my-3">
     <div class="card-body">
-        <h5 class="card-title">by {{ trip_report.author }}</h5>
-        <p class="card-text">{{ trip_report.entry_text }}</p>
-    </div>
-    <div class="card-footer">
-        <small class="text-body-secondary">Created {{ trip_report.date_of_trip }}</small>
+        <h5 class="card-title">On {{ trip_report.date_of_trip }} I took {{ trip_report.dosage }}{{trip_report.dosage_units }} of 
+            {{ trip_report.substance }}.</h5>
+        <h5>I was in {{ trip_report.location }}.</h5>
     </div>
 </div>
-<a href="{% url 'list_trips' %}" class="btn btn-primary text-white w-25">< View all trips</a>
+
+<div class="action_buttons_wrapper">
+    <a href="{% url 'list_trips' %}" class="btn btn-primary text-white">
+        <i class="icon bi-caret-left-fill"></i> View all trips
+    </a>
+
+    <a href="{% url 'edit_trip' trip_id=trip_report.id %}" class="btn btn-secondary text-white">
+        <i class="icon bi-pencil-fill"></i> Edit trip
+    </a>
+    
+    <a href="{% url 'list_trips' %}" class="btn btn-danger text-white">
+        <i class="icon bi-x-circle-fill"></i> Remove trip
+    </a>
+</div>
+    
+
 {% endblock content %}

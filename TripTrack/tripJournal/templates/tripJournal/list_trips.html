@@ -4,19 +4,23 @@
 <h1>Down memory lane...</h1>
 <div class="row">
     {% for trip in trip_reports %}
-    <div class="col-6">
+    <div class="col-12">
         <a href="{% url 'view_trip' trip_id=trip.id %}" class="trip_report_clickable">
             <div class="card my-3">
                 <div class="card-body">
-                    <h5 class="card-title">{{ trip.title }}</h5>
-                    <p class="card-text trip_report_text">{{ trip.truncate_entry }}</p>
+                    <h5 class="card-title">{{ trip.substance }} {{ trip.dosage }}{{ trip.dosage_units }}</h5>
                 </div>
                 <div class="card-footer">
-                    <small class="text-body-secondary">Created {{ trip.date_of_trip }} by {{ trip.author }}</small>
+                    <small class="text-body-secondary">{{ trip.date_of_trip }} in {{ trip.location }}</small>
                 </div>
             </div>
         </a>
     </div>
     {% endfor %}
+    <div class="col">
+        <a href="{% url 'create_trip' %}" class="btn btn-primary text-white">
+            <i class="icon bi-plus-circle-fill"></i> Add trip
+        </a>
+    </div>
 </div>
 {% endblock content %}
