@@ -5,9 +5,9 @@ A journal to track your journeys
 
 ## Potential features and ideas
 
-Trip tracking: Allow users to track the details of their trips, such as the date, time, location, dosage, and type of psychedelic substance used. This can help users identify patterns and track their progress over time.
+Trip tracking: Allow users to track the details of their trips, such as the date, time, location, amount, and type of substance used. This can help users identify patterns and track their progress over time.
 
-Mood tracking: Allow users to track their mood before, during, and after the trip. This can help users identify any correlations between their mood and the effects of the psychedelic substance.
+Mood tracking: Allow users to track their mood before, during, and after the trip. This can help users identify any correlations between their mood and the effects of the substance.
 
 Journaling: Allow users to write about their experiences during the trip, including any insights, thoughts, or emotions they experienced. This can help users process their experiences and gain a deeper understanding of themselves.
 
@@ -17,5 +17,5 @@ Community features: Allow users to connect with other users who have had similar
 
 Guided meditations: Provide users with guided meditations to help them prepare for and integrate their psychedelic experiences. This can help users approach their trips with a more mindful and intentional mindset.
 
-Educational resources: Provide users with educational resources on psychedelics, including their history, effects, risks, and benefits. This can help users make informed decisions about their use of psychedelics.
+Educational resources: Provide users with educational resources on substances, including their history, effects, risks, and benefits. This can help users make informed decisions about their use of substances.
 
