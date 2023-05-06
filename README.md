@@ -1,8 +1,8 @@
 # Trip Track
-A journal to track your journeys
 
-![image](https://user-images.githubusercontent.com/68898006/236265050-18bece1e-e983-48b6-b9ff-702d82756e45.png)
+An all-in-one journal to promote good trips!
 
+![early promo](https://github.com/anchit-chandran/best-trip/blob/live/early-promo.gif)
 
 ## Potential features and ideas
 
