@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "list_trips"
 LOGIN_URL='login'
 
 WSGI_APPLICATION = 'TripTrack.wsgi.application'
