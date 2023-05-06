@@ -128,5 +128,5 @@ form p{
 }
 
 .form_border {
-  border: 0.5em solid var(--secondary);
+  border: 0.5em solid var(--accent);
 }

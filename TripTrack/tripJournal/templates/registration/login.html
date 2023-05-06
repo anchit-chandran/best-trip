@@ -1,9 +1,10 @@
 {% extends 'tripJournal/base.html' %}
 
 {% block content %}
-<h1>Edit trip report</h1>
 <div class="row justify-content-center">
+
     <div class="col-6 form_border p-4">
+        <h1>Sign in</h1>
         <form method="post" class="form-group">
             {% csrf_token %}
             {{ form.as_p }}
