@@ -1,8 +1,13 @@
 {% extends 'tripJournal/base.html' %}
 
 {% block content %}
-<h1>Down memory lane...</h1>
+<h1>Previous trips</h1>
 <div class="row">
+    <div class="col">
+        <a href="{% url 'create_trip' %}" class="btn btn-primary text-white">
+            <i class="icon bi-plus-circle-fill"></i> Add trip
+        </a>
+    </div>
     {% for trip in trip_reports %}
     <div class="col-12">
         <a href="{% url 'view_trip' trip_id=trip.id %}" class="trip_report_clickable">
@@ -11,16 +16,11 @@
                     <h5 class="card-title">{{ trip.substance }} {{ trip.dosage }}{{ trip.dosage_units }}</h5>
                 </div>
                 <div class="card-footer">
-                    <small class="text-body-secondary">{{ trip.date_of_trip }} in {{ trip.location }}</small>
+                    <small class="text-body-secondary">{{ trip.date_of_trip }} {{ trip.time_of_trip }} in {{ trip.location }}</small>
                 </div>
             </div>
         </a>
     </div>
     {% endfor %}
-    <div class="col">
-        <a href="{% url 'create_trip' %}" class="btn btn-primary text-white">
-            <i class="icon bi-plus-circle-fill"></i> Add trip
-        </a>
-    </div>
 </div>
 {% endblock content %}

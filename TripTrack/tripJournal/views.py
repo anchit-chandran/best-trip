@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView
 
 from .models import Substance, TripReport
 
-from .forms import EditTripReportForm
+from .forms import CreateTripReportForm, EditTripReportForm
 
 # Create your views here.
 def index(request):
@@ -41,9 +41,23 @@ def edit_trip(request, trip_id):
         return render(request, template_name='tripJournal/edit_trip.html', context={'form':form})
     
 
-class TripReportCreateView(CreateView):
-    model = TripReport
-    fields = '__all__'
-    template_name = 'tripJournal/create_trip_report.html'
-    success_url = reverse_lazy('list_trips')
+def create_trip(request):
+    
+    if request.method == 'GET':
+        
+        form = CreateTripReportForm()
+        
+        print(form)
+        
+        return render(request, template_name='tripJournal/create_trip_report.html', context={'form':form})
+    
+    elif request.method == 'POST':
+        
+        form = CreateTripReportForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+        
+        return redirect('list_trips')
+        
 

@@ -12,7 +12,9 @@ class Substance(models.Model):
 
 class TripReport(models.Model):
 
-    date_of_trip = models.DateTimeField()
+    datetime_of_trip = models.DateTimeField(
+        null=True
+    )
     location = models.CharField(max_length=100)
     dosage = models.IntegerField()
     dosage_units = models.CharField(max_length=20, default='mg')
@@ -20,5 +22,5 @@ class TripReport(models.Model):
     
 
     def __str__(self):
-        return f"{self.date_of_trip.date()} - {self.substance} ({self.dosage}{self.dosage_units})"
+        return f"{self.date_of_trip} - {self.substance} ({self.dosage}{self.dosage_units})"
     
