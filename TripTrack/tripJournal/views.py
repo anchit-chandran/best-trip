@@ -47,8 +47,6 @@ def create_trip(request):
         
         form = CreateTripReportForm()
         
-        print(form)
-        
         return render(request, template_name='tripJournal/create_trip_report.html', context={'form':form})
     
     elif request.method == 'POST':
