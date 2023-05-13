@@ -12,7 +12,9 @@
         <a href="{% url 'home' %}">
             <div class="float-md-start mb-0 text-white">
                 <h3 class="m-0 d-inline">Trip Track </h3>
+                {% if user.is_authenticated %}
                 <p class="m-0 d-inline">Welcome, {{ user }} 👋</p>
+                {% endif %}
             </div>
         </a>
         <nav class="nav nav-masthead justify-content-center float-md-end">
