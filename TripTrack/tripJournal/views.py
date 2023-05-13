@@ -9,13 +9,8 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.views import SuccessMessageMixin
 
-from .models import Substance, TripReport
-
-from .forms import (
-    CreateTripReportForm,
-    EditTripReportForm,
-    UserLoginForm,
-)
+from .models import *
+from .forms import *
 
 
 def index(request):
@@ -100,8 +95,8 @@ class CustomLoginFormView(LoginView):
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
 
 
 @login_required
@@ -113,3 +108,36 @@ def logout_user(request):
         extra_tags="safe",
     )
     return redirect("home")
+
+
+@login_required
+def add_substance(request):
+    if request.method == "GET":
+        form = AddSubstanceForm()
+
+    elif request.method == "POST":
+        
+        # USER HAS TO BE LOGGED IN TO ACCESS FORM SO DON'T NEED TO CHECK IF NOT AUTHENTICATED
+        if request.user.is_authenticated:
+            form = AddSubstanceForm({
+                'name' : request.POST['name'],
+                'user_key' : request.user
+            })
+
+            if form.is_valid():
+                print("valid form")
+                form.save()
+     
+            else:
+                print('invalid form')
+                print(form.errors)
+        
+    substances = Substance.objects.filter(user_key=request.user)
+    return render(
+        request,
+        template_name="tripJournal/create_substance.html",
+        context={
+            "form": form,
+            'substances' : substances,
+        },
+    )

@@ -1,0 +1,37 @@
+{% extends 'tripJournal/base.html' %}
+
+{% block content %}
+<h1>Add a substance</h1>
+<div class="row justify-content-center">
+    <div class="col form_border m-md-4 p-md-1">
+        <form method="post" class="form-group row justify-content-evenly text-start p-3">
+            {% csrf_token %}
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.name.id_for_label }}" class="form-label">
+                    {{ form.name.label}}</label>
+                {{ form.name }}
+                {{ form.errors.name }}
+            </div>
+
+            <div class="col-md-12 mb-3 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary d-flex justify-content-center mx-2 px-4">Add substance<i
+                        class="icon bi-arrow-up-square-fill mx-2"></i></button>
+            </div>
+            <div class="col-md-12 mb-3">
+                <h4>Your substances:</h4>
+                <div class="row">
+                    {% if substances %}
+                    {% for substance in substances %}
+                    <div class="col-3">
+                        <p class="substance_pill">{{ substance }}</p>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <h6>You haven't saved any! Enter some new ones above.</h6>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

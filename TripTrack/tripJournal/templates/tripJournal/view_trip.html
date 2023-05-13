@@ -4,9 +4,11 @@
 
 <div class="card my-3">
     <div class="card-body">
-        <h5 class="card-title">On {{ trip_report.date_of_trip }} {{ trip.time_of_trip }} I took {{ trip_report.dosage }}{{trip_report.dosage_units }} of 
+        <h5 class="card-title">On {{ trip_report.datetime_of_trip }}, I took {{ trip_report.dosage }}{{trip_report.dosage_units }} of 
             {{ trip_report.substance }}.</h5>
-        <h5>I was in {{ trip_report.location }}.</h5>
+        <h5 class="card-subtitle">I was in {{ trip_report.location }}.</h5>
+        <hr>
+        <p class="card-text">{{ trip_report.description }}</p>
     </div>
 </div>
 

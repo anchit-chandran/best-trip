@@ -4,12 +4,16 @@
 {% url 'create_trip' as create_trip_url %}
 {% url 'login' as login_url %}
 {% url 'logout' as logout_url %}
+{% url 'signup' as signup_url %}
 
 <header class="mb-auto">
 
     <div class="span">
         <a href="{% url 'home' %}">
-            <h3 class="float-md-start mb-0 text-white">Trip Track</h3>
+            <div class="float-md-start mb-0 text-white">
+                <h3 class="m-0 d-inline">Trip Track </h3>
+                <p class="m-0 d-inline">Welcome, {{ user }} 👋</p>
+            </div>
         </a>
         <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link fw-bold py-1 px-0 {% if request.path == home_url %}active {% endif %}"
@@ -22,8 +26,8 @@
             {% else %}
             <a class="nav-link {% if request.path == login_url %}active {% endif %} fw-bold py-1 px-0 ms-3"
                 href="{% url 'login' %}">Log in</a>
-            <a class="nav-link {% if request.path == logout_url %}active {% endif %} fw-bold py-1 px-0 ms-3"
-                href="#">Sign up</a>
+            <a class="nav-link {% if request.path == signup_url %}active {% endif %} fw-bold py-1 px-0 ms-3"
+                href="{% url 'signup' %}">Sign up</a>
             {% endif %}
         </nav>
     </div>

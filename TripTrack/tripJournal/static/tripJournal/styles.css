@@ -1,11 +1,11 @@
 :root {
   --main: rgb(56, 1, 1);
   --secondary: #2d5c2b;
+  --secondary-dark: #224620;
   --muted: rgb(144, 144, 144);
   --accent: rgb(235, 145, 253);
   --accent-dark: rgb(170, 91, 185);
   --danger: #b11700;
-
 }
 
 a {
@@ -23,7 +23,8 @@ a {
   border-bottom: 0.2em solid;
 }
 
-.nav-link:focus, .nav-link:hover {
+.nav-link:focus,
+.nav-link:hover {
   color: var(--accent-dark);
 }
 
@@ -37,38 +38,37 @@ a.trip_report_clickable {
   text-decoration: inherit;
 }
 a.trip_report_clickable .card-footer {
-    background-color: inherit;
+  background-color: inherit;
 }
 
 a.trip_report_clickable:hover .card-footer {
   animation: rainbow-border 3s ease-in-out infinite;
 }
 
-
 @keyframes rainbow-border {
   0% {
-     background-color: rgba(255, 255, 255, 0.25); /* Red */
+    background-color: #ffffff40; /* Red */
   }
   0% {
-    background-color: rgba(255, 0, 0, 0.25); /* Red */
+    background-color: #ff000040; /* Red */
   }
   16.7% {
-     background-color: rgb(255, 127, 0, 0.25); /* Orange */
+    background-color: #ff7f0040; /* Orange */
   }
   33.3% {
-     background-color: rgb(255, 255, 0, 0.25); /* Yellow */
+    background-color: #ffff0040; /* Yellow */
   }
   50% {
-     background-color: rgb(0, 255, 0, 0.25); /* Green */
+    background-color: #00ff0040; /* Green */
   }
   66.7% {
-     background-color: rgb(0, 0, 255, 0.25); /* Blue */
+    background-color: #0000ff40; /* Blue */
   }
   83.3% {
-     background-color: rgb(75, 0, 130, 0.25); /* Indigo */
+    background-color: #4b008240; /* Indigo */
   }
   100% {
-     background-color: rgb(139, 0, 255, 0.25); /* Violet */
+    background-color: #8b00ff40; /* Violet */
   }
 }
 
@@ -104,37 +104,71 @@ div.action_buttons_wrapper {
 
 @keyframes rainbow-icon-fill {
   0% {
-     color: rgba(255, 255, 255, 1); /* Red */
+    color: rgba(255, 255, 255, 1); /* Red */
   }
   0% {
     color: rgba(255, 0, 0, 1); /* Red */
   }
   16.7% {
-     color: rgb(255, 127, 0, 1); /* Orange */
+    color: rgb(255, 127, 0, 1); /* Orange */
   }
   33.3% {
-     color: rgb(255, 255, 0, 1); /* Yellow */
+    color: rgb(255, 255, 0, 1); /* Yellow */
   }
   50% {
-     color: rgb(0, 255, 0, 1); /* Green */
+    color: rgb(0, 255, 0, 1); /* Green */
   }
   66.7% {
-     color: rgb(0, 0, 255, 1); /* Blue */
+    color: rgb(0, 0, 255, 1); /* Blue */
   }
   83.3% {
-     color: rgb(75, 0, 130, 1); /* Indigo */
+    color: rgb(75, 0, 130, 1); /* Indigo */
   }
   100% {
-     color: rgb(139, 0, 255, 1); /* Violet */
+    color: rgb(139, 0, 255, 1); /* Violet */
   }
 }
 
 /* FORMS */
 
-form p{
+form p {
   text-align: start;
 }
 
 .form_border {
   box-shadow: 0 0 2em -0.5em var(--accent);
+}
+
+.substance_pill {
+  border-radius: 35px;
+  text-align: center;
+
+  background: linear-gradient(
+    124deg,
+    #4a0b00,
+    #500a0a,
+    #71590e,
+    #464709,
+    #0b4e16,
+    #12747a,
+    #120d5b,
+    #770383,
+    #5f0268
+  );
+}
+.substance_pill:hover {
+  background: linear-gradient(
+    124deg,
+    #ff2400,
+    #e81d1d,
+    #e8b71d,
+    #e3e81d,
+    #1de840,
+    #1ddde8,
+    #2b1de8,
+    #dd00f3,
+    #dd00f3
+  );
+  color: var(--main);
+  
 }

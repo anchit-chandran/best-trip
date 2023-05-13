@@ -19,7 +19,7 @@
                 {{ form.location }}
             </div>
             <div class="col-md-7 mb-3">
-                <label for="{{ form.substance.id_for_label }}" class="form-label">{{ form.substance.label }} <i class="icon bi-question-diamond-fill mx-2" data-bs-toggle="tooltip" data-bs-title="Default tooltip" data-bs-placement="right"></i></label>
+                <label for="{{ form.substance.id_for_label }}" class="form-label">{{ form.substance.label }} <a href="{% url 'add_substance' %}" data-bs-toggle="tooltip" data-bs-title="Don't see your item? Add another one." data-bs-placement="right" class="mx-2"><i class="icon bi-plus-square-dotted"></a></i></label>
                 {{ form.substance }}
             </div>
             <div class="col-md mb-3">

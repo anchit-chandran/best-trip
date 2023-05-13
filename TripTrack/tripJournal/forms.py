@@ -44,9 +44,18 @@ class EditTripReportForm(ModelForm):
             "substance": forms.Select(attrs={"class": "form-control"}),
         }
 
+class AddSubstanceForm(ModelForm):
+    
+    class Meta:
+        model = Substance
+        fields = '__all__'
+        widgets = {
+            'name' : forms.TextInput(attrs={"class": "form-control"})
+        }
 
 # AUTHENTICATION FORMS
 class UserLoginForm(ModelForm):
     class Meta:
         model = User
         fields = ["username", "password"]
+

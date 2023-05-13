@@ -11,4 +11,5 @@ urlpatterns = [
     path('login', views.CustomLoginFormView.as_view(),name='login'),
     path('logout', views.logout_user, name='logout'),
     path("signup", views.SignUpView.as_view(), name="signup"),
+    path('add-substance', views.add_substance, name='add_substance')
 ]
