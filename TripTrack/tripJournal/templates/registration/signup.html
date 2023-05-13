@@ -1,0 +1,15 @@
+{% extends 'tripJournal/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+
+    <div class="col-6 form_border p-4">
+        <h1>Make an account</h1>
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-primary mx-auto">
+        </form>
+    </div>
+</div>
+{% endblock content %}
