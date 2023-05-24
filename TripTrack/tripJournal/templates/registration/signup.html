@@ -3,11 +3,33 @@
 {% block content %}
 <div class="row justify-content-center">
 
-    <div class="col-6 form_border p-4">
-        <h1>Make an account</h1>
+    <div class="col-9 form_border p-4">
+        <h1>Sign up for Trip Track</h1>
+        <p>We can't wait for you to join us!</p>
+        <p>We just need a couple of details from you below.</p>
         <form method="post" class="form-group">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="col mb-3 text-start">
+                <label for="{{ form.username.id_for_label }}" class="form-label">
+                    {{ form.username.label}}
+                </label>
+                {{ form.username }}
+                {{ form.errors.username }}
+            </div>
+            <div class="col mb-3 text-start">
+                <label for="{{ form.password1.id_for_label }}" class="form-label">
+                    {{ form.password1.label}}
+                </label>
+                {{ form.password1 }}
+                {{ form.errors.password1 }}
+            </div>
+            <div class="col mb-3 text-start">
+                <label for="{{ form.password2.id_for_label }}" class="form-label">
+                    {{ form.password2.label}}
+                </label>
+                {{ form.password2 }}
+                {{ form.errors.password2 }}
+            </div>
             <input type="submit" value="Submit" class="btn btn-primary mx-auto">
         </form>
     </div>

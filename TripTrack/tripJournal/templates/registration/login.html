@@ -3,10 +3,11 @@
 {% block content %}
 <div class="row justify-content-center">
 
-    <div class="col-6 form_border p-4">
+    <div class="col-9 form_border p-4">
         <h1>Sign in</h1>
         <form method="post" class="form-group">
             {% csrf_token %}
+            <p>{{ error }}</p>
             {{ form.as_p }}
             <input type="submit" value="Submit" class="btn btn-primary mx-auto">
         </form>

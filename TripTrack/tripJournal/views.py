@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.forms import UserCreationForm
+from tripJournal.forms import CreateUserForm, UserLoginForm
 from django.contrib.messages.views import SuccessMessageMixin
 
 from .models import *
@@ -83,18 +82,16 @@ def create_trip(request):
 
 
 # AUTHENTICATION VIEWS
+
 class CustomLoginFormView(LoginView):
     template_name = "registration/login.html"
     success_url = "home"
+    form_class = UserLoginForm
 
-    def form_valid(self, form):
-        user = form.get_user()
-        messages.success(self.request, f"Welcome {user}! Happy tripping, friend 🔮")
-        return super().form_valid(form)
 
 
 class SignUpView(CreateView):
-    form_class = UserCreationForm
+    form_class = CreateUserForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
 
@@ -116,28 +113,26 @@ def add_substance(request):
         form = AddSubstanceForm()
 
     elif request.method == "POST":
-        
         # USER HAS TO BE LOGGED IN TO ACCESS FORM SO DON'T NEED TO CHECK IF NOT AUTHENTICATED
         if request.user.is_authenticated:
-            form = AddSubstanceForm({
-                'name' : request.POST['name'],
-                'user_key' : request.user
-            })
+            form = AddSubstanceForm(
+                {"name": request.POST["name"], "user_key": request.user}
+            )
 
             if form.is_valid():
                 print("valid form")
                 form.save()
-     
+
             else:
-                print('invalid form')
+                print("invalid form")
                 print(form.errors)
-        
+
     substances = Substance.objects.filter(user_key=request.user)
     return render(
         request,
         template_name="tripJournal/create_substance.html",
         context={
             "form": form,
-            'substances' : substances,
+            "substances": substances,
         },
     )

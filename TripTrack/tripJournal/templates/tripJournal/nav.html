@@ -2,7 +2,7 @@
 {% url 'list_trips' as list_trips_url %}
 {% url 'view_trip' as view_trip_url %}
 {% url 'create_trip' as create_trip_url %}
-{% url 'login' as login_url %}
+{% url 'login_user' as login_url %}
 {% url 'logout' as logout_url %}
 {% url 'signup' as signup_url %}
 
@@ -27,7 +27,7 @@
                 href="logout">Sign out</a>
             {% else %}
             <a class="nav-link {% if request.path == login_url %}active {% endif %} fw-bold py-1 px-0 ms-3"
-                href="{% url 'login' %}">Log in</a>
+                href="{% url 'login_user' %}">Log in</a>
             <a class="nav-link {% if request.path == signup_url %}active {% endif %} fw-bold py-1 px-0 ms-3"
                 href="{% url 'signup' %}">Sign up</a>
             {% endif %}

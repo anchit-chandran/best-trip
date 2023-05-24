@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 from tripJournal.models import TripReport, Substance
 
@@ -58,4 +59,26 @@ class UserLoginForm(ModelForm):
     class Meta:
         model = User
         fields = ["username", "password"]
+        widgets = {
+            'username': forms.TextInput(attrs={'class':'form-control','placeholder':'Enter your username'}),
+            'password': forms.PasswordInput(attrs={'class':'form-control','placeholder':'Enter your password'})
+        }
 
+
+class CreateUserForm(UserCreationForm):
+
+    password1 = forms.CharField(
+        label="Password",
+        widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password', 'placeholder':'Enter your password'}),
+    )
+    password2 = forms.CharField(
+        label="Confirm password",
+        widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password', 'placeholder':'Confirm your password'}),
+    )
+
+    class Meta:
+        model = User
+        fields = ['username']
+        widgets={
+            'username': forms.TextInput(attrs={'class':'form-control', 'type':'text', 'placeholder':'Enter your username'}),
+        }
