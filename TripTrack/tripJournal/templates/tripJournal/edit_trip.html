@@ -2,13 +2,42 @@
 
 {% block content %}
 <h1>Edit trip report</h1>
-<div class="row justify-content-center">
-    <div class="col-6 form_border p-4">
-        <form method="post" class="form-group">
+<div class="row my-4">
+    <div class="col form_border m-md-4 p-md-1">
+        <form method="post" class="form-group row justify-content-evenly text-start p-3">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit" class="btn btn-primary mx-auto">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.datetime_of_trip.id_for_label }}" class="form-label">
+                    {{ form.datetime_of_trip.label}}</label>
+                {{ form.datetime_of_trip }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.location.id_for_label }}" class="form-label">{{ form.location.label }}</label>
+                {{ form.location }}
+            </div>
+            <div class="col-md-7 mb-3">
+                <label for="{{ form.substance.id_for_label }}" class="form-label">{{ form.substance.label }} <a href="{% url 'add_substance' %}" data-bs-toggle="tooltip" data-bs-title="Don't see your item? Add another one." data-bs-placement="right" class="mx-2"><i class="icon bi-plus-square-dotted"></a></i></label>
+                {{ form.substance }}
+            </div>
+            <div class="col-md mb-3">
+                <label for="{{ form.dosage.id_for_label }}" class="form-label">{{ form.dosage.label }}</label>
+                {{ form.dosage }}
+            </div>
+            <div class="col-md mb-3">
+                <label for="{{ form.dosage_units.id_for_label }}" class="form-label">{{ form.dosage_units.label }}</label>
+                {{ form.dosage_units }}
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="{{ form.description.id_for_label }}" class="form-label">{{ form.description.label }}</label>
+                {{ form.description }}
+            </div>
+
+
+            <div class="col-md-12 mb-3 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary d-flex justify-content-center mx-2 px-4">Add trip report<i class="icon bi-arrow-up-square-fill mx-2"></i></button>
+            </div>
+
+
         </form>
     </div>
-</div>
 {% endblock content %}

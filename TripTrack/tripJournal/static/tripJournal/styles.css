@@ -136,7 +136,7 @@ form p {
 }
 
 .form_border {
-  box-shadow: 0 0 2em -0.5em var(--accent);
+  box-shadow: 0 0 1em 0em var(--accent);
 }
 
 .substance_pill {

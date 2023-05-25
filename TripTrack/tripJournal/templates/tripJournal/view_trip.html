@@ -21,7 +21,7 @@
         <i class="icon bi-pencil-fill"></i> Edit trip
     </a>
     
-    <a href="{% url 'list_trips' %}" class="btn btn-danger text-white">
+    <a href="{% url 'delete_trip' trip_id=trip_report.id %}" class="btn btn-danger text-white">
         <i class="icon bi-x-circle-fill"></i> Remove trip
     </a>
 </div>

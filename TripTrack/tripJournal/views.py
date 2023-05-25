@@ -36,13 +36,23 @@ def view_trip(request, trip_id):
         context={"trip_report": trip_report},
     )
 
+@login_required
+def delete_trip(request, trip_id):
+    trip_report = TripReport.objects.get(id=trip_id)
 
+    location = trip_report.location
+    trip_report.delete()
+    
+    messages.success(request, f"Congrats, you removed your trip in {location}! ♻️")
+
+    return redirect("list_trips")
+    
 @login_required
 def edit_trip(request, trip_id):
     trip_report = get_object_or_404(TripReport, id=trip_id)
 
     if request.method == "POST":
-        form = EditTripReportForm(request.POST, instance=trip_report)
+        form = CreateTripReportForm(request.POST, instance=trip_report)
         if form.is_valid():
             form.save()
             return redirect("view_trip", trip_id=trip_id)
@@ -54,7 +64,7 @@ def edit_trip(request, trip_id):
             )
 
     elif request.method == "GET":
-        form = EditTripReportForm(instance=trip_report)
+        form = CreateTripReportForm(instance=trip_report)
 
         return render(
             request, template_name="tripJournal/edit_trip.html", context={"form": form}
