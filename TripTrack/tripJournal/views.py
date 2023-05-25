@@ -83,10 +83,22 @@ def create_trip(request):
 
 # AUTHENTICATION VIEWS
 
-class CustomLoginFormView(LoginView):
-    template_name = "registration/login.html"
-    success_url = "home"
-    form_class = UserLoginForm
+def login_user(request):
+    
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            messages.success(request, message=f"Hello, {user}! 👋")
+            return redirect("list_trips")
+        else:
+            messages.error(request, message=f"Incorrect username or password. Please try again 😨")
+    form = UserLoginForm()
+    return render(request, 'registration/login.html', {'form':form})
 
 
 

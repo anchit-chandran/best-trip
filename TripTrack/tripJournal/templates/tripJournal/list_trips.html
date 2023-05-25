@@ -29,8 +29,8 @@
     <div class="col-10">
         <h1>Entering Trip Track 🔐</h1>
         <p>Trips are magical, but deeply personal.</p>
-        <p>To keep us all feeling safe and secure to share our journeys, we ask that you <a href="#">register</a> an account and <a href="{% url 'login' %}">sign in</a>.</p>
-        <a href="{% url 'login' %}" class="btn btn-primary text-white">
+        <p>To keep us all feeling safe and secure to share our journeys, we ask that you <a href="{% url 'signup' %}">register</a> an account and <a href="{% url 'login_user' %}">sign in</a>.</p>
+        <a href="{% url 'login_user' %}" class="btn btn-primary text-white">
             <i class="icon bi-box-arrow-right"></i> Sign in
         </a>
     </div>
