@@ -35,9 +35,9 @@
     </div>
 </header>
 <div class="row">
-    <div class="col">
+    <div class="col d-flex justify-content-center">
         {% if messages %}
-        <ul class="messages">
+        <div class="messages">
             {% for message in messages %}
             <div {% if message.tags %} class="alert {{ message.tags }} alert-dismissible fade show" {% endif %}
                 role="alert">
@@ -46,7 +46,7 @@
             </div>
 
             {% endfor %}
-        </ul>
+        </div>
         {% endif %}
     </div>
 </div>
