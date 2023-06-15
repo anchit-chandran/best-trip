@@ -2,7 +2,7 @@
 
 An all-in-one journal to promote good trips!
 
-![early promo](https://github.com/anchit-chandran/best-trip/blob/live/early-promo.gif)
+![image](https://github.com/anchit-chandran/best-trip/assets/68898006/34bdb8f2-f6d6-4186-9700-7edf4d49c1d0)
 
 ## Potential features and ideas
 
